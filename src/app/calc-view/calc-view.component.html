@@ -1,8 +1,28 @@
-<p>Valor 1</p>
-<app-calc-actions></app-calc-actions>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<p>Valor 2</p>
-<app-calc-actions></app-calc-actions>
-
-<p>Resultado</p>
-<app-calc-actions></app-calc-actions>
+<div class="container mt-4">
+    <div class="d-flex justify-content-center">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4 text-center">Calculadora</h4>
+                
+                <div class="form-group">
+                    <label for="valor1">Valor 1</label>
+                    <input id="valor1" type="number" class="form-control" (input)="onValor1Change($event)" placeholder="Ingrese el primer valor">
+                </div>
+                
+                <div class="form-group">
+                    <label for="valor2">Valor 2</label>
+                    <input id="valor2" type="number" class="form-control" (input)="onValor2Change($event)" placeholder="Ingrese el segundo valor">
+                </div>
+                
+                <div class="form-group">
+                    <label for="resultado">Resultado</label>
+                    <input id="resultado" type="number" class="form-control" [value]="resultado" disabled>
+                </div>
+                
+                <app-calc-actions [valor1]="valor1" [valor2]="valor2" (resultado)="resultado = $event"></app-calc-actions>
+            </div>
+        </div>
+    </div>
+</div>
