@@ -12,6 +12,7 @@ export class CalcActionsComponent {
   @Input() valor1: number = 0;
   @Input() valor2: number = 0;
   @Output() resultado = new EventEmitter<number>();
+  @Output() limpiarValores = new EventEmitter<void>();
 
   suma() {
     this.resultado.emit(this.valor1 + this.valor2);
@@ -34,9 +35,8 @@ export class CalcActionsComponent {
   }
 
   limpiar() {
-    this.valor1 = 0;
-    this.valor2 = 0;
     this.resultado.emit(0);
+    this.limpiarValores.emit();
   }
 
 }
